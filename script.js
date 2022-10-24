@@ -1,4 +1,6 @@
 
+let gridStatus = '';
+
 function createGrid(userSize) {
     const container = document.querySelector('#container')
     container.setAttribute('style', `grid-template-columns: repeat(${userSize}, 1fr); grid-template-rows: repeat(${userSize}, 1fr);`);
@@ -16,11 +18,20 @@ function createGrid(userSize) {
             event.target.style.backgroundColor = "purple";
         }, false);
     })
+    let gridStatus = 'active'
+}
+
+function clearGrid() {
+
 }
 
 function setSize(){
+    if (gridStatus === 'active'){
+        clearGrid();
+    } else {
     let userInput = prompt("What size would you like for this etch-a-sketch? (e.g., '16' equals 16x16)")
     createGrid(userInput);
+    }
 } 
 
 
